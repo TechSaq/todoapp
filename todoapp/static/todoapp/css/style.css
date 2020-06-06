@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgba(87, 195, 228, 0.7);
+    min-height: 100vh;
+    color: rgba(36, 59, 59, 0.8);
+}
+
+.wrapper {
+    max-width: 700px;
+    background: white;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+h1,
+h3 {
+    text-align: center;
+    color: rgba(31, 29, 29, 0.9);
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    text-decoration: overline;
+}
+
+h3 {
+    font-size: 0.9rem;
+}
+
+.todoform {
+    margin-top: 30px;
+}
+
+textarea.form-control {
+    height: 50px;
+}
+
+.btn-wrapper {
+    margin-top: 10px;
+}
+
+.btn-wrapper .btn,
+.btn-delete {
+    min-width: 100px;
+    max-width: 200px;
+    height: 45px;
+}
+
+.btn-add {
+    position: relative;
+    right: 10%;
+}
+
+.todolist-wrapper {
+    margin-top: 50px;
+}
+
+.btn-delete {
+    position: relative;
+    top: -95px;
+    left: 50%;
+}
+
+.todolist-wrapper input[type="checkbox"] {
+    margin-top: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+.todolist-wrapper .btn {
+    min-width: 100px;
+}

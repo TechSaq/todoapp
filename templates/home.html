@@ -1,0 +1,77 @@
+{% load static %} {% load bootstrap4 %} {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} {{ todoform.media }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+
+    <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
+    <link rel="stylesheet" href={% static 'open-iconic-master/font/css/open-iconic-bootstrap.css' %}>
+    <link rel="stylesheet" href={% static 'todoapp/css/style.css' %}>
+</head>
+
+<body>
+    <div class="container wrapper">
+        <header>
+            <h1 class="title">To Do App</h1>
+            <h3>by Arwa Zeeser</h3>
+        </header>
+        <form class="todoform" method="POST" action=".">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for={{form.label_description}}>Description</label> {{ todoform.description }}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Category</label> {{ todoform.category }}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Due Date</label> {{ todoform.due_date }}
+                    </div>
+                </div>
+            </div>
+            <div class="btn-wrapper text-center">
+                <button type="submit" class="btn btn-dark btn-add" name="add" value="add-task">
+                    <span class="oi oi-plus"></span>
+                    Add Task
+                </button>
+            </div>
+        </form>
+        <form class="todolist-wrapper" action="." method="POST">
+            {% csrf_token %}
+            <div class="todolist">
+                <button type="submit" class="btn btn-danger btn-delete" name="delete" value="delete-tasks">
+                    <span class="oi oi-trash"></span>
+                    Delete Tasks
+                </button> {% for todo in todos %}
+                <div class="row text-left mb-4">
+                    <input type="checkbox" name="todo" value={{ todo.id }} class="col-1" id={{ todo.id }}>
+                    <div class="todo-summary col-9">
+                        <div class="todo-title font-weight-bold">
+                            {{ todo.description }}
+                        </div>
+                        <div class="todo-timestamp">
+                            <span class="oi oi-calendar"></span>
+                            <small class="time-period text-muted">{{ todo.created_at }} - {{ todo.due_date }}</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-success">
+                            {{ todo.get_category_display }}
+                        </button>
+                </div>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+
+    <script src={% static 'js/jquery.slim.min.js' %}></script>
+    <script src={% static 'js/bootstrap.bundle.min.js' %}></script>
+
+</body>
+
+</html>
