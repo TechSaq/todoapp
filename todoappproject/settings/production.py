@@ -1,11 +1,12 @@
 from .base import *
+import django_heroku
 
 
-DEBUG = config('DEBUG', cast=boolean)
+DEBUG = config('DEBUG', cast=bool)
 
 
 ALLOWED_HOSTS = ['zeesertodoapp.herokuapp.com']
-
+print(DEBUG)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
