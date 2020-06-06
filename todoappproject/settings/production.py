@@ -1,10 +1,10 @@
 from .base import *
 
 
-DEBUG = config('DEBUG')
+DEBUG = config('DEBUG', cast=boolean)
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['zeesertodoapp.herokuapp.com']
 
 MIDDLEWARE += [
     'whitenoise.middleware.WhiteNoiseMiddleware',
