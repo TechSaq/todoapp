@@ -3,7 +3,8 @@ import django_heroku
 import dj_database_url
 
 
-DEBUG = config('DEBUG', cast=bool)
+# DEBUG = config('DEBUG', cast=bool)
+DEBUG = True
 
 DATABASE_URL = config('DATABASE_URL')
 

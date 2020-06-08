@@ -1,4 +1,4 @@
 from .base import *
 
-DEBUG = True
+DEBUG = config('DEBUG')
 ALLOWED_HOSTS = []
