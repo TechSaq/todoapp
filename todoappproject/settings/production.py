@@ -15,6 +15,8 @@ print(db_from_env)
 
 ALLOWED_HOSTS = ['zeesertodoapp.herokuapp.com']
 
+print(ALLOWED_HOSTS)
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
